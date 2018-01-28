@@ -1,0 +1,41 @@
+<div class="index">
+  <div class="index_logo">
+    <img src="/5ch.png" width="500px"/>
+  </div>
+  <% @titles.each do |title| %>
+      <div class="index_container">
+        <div class="index_board_name">
+          <%= link_to(title.name,"/titles/#{title.id}/show") %>
+        </div>
+
+        <% post_num = 1 %>
+        <% title.posts.each do |post| %>
+
+          <div class="index_post_by">
+            <%= post_num %> 名前：<span class="index_post_name"><%= post.name %></span> <%= post.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+          </div>
+          <div class="index_post_content">
+            <%= post.content %>
+          </div>
+
+          <% if post_num == 3 %>
+            <% break %>
+          <% else %>
+            <% post_num = post_num + 1 %>
+          <% end %>
+
+        <% end %>
+      </div>
+
+  <% end %>
+
+
+
+  新規スレッド作成
+  スレッドタイトル：
+  <%= form_tag("/titles/new") do %>
+    <input type="text" name="name" />
+    <input type="submit" value="作成" />
+  <% end %>
+
+</div>
