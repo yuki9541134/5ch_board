@@ -1,24 +1,5 @@
-# README
+# 5ch
+5ch風の掲示板
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Demo
+![tetris](https://user-images.githubusercontent.com/34640556/35718143-7666614a-0826-11e8-8941-a43eda1ba4eb.PNG)
