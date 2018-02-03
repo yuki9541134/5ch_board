@@ -1,7 +1,25 @@
 <div class="show">
+	<%= link_to(image_tag('/5ch_logo.png',{:width=>"100px"}),"/") %>
+
 	<div class = "show_title">
 		<%= @title.name %>
 	</div>
+
+	<div class= "show_menu_container">
+		<div class= "show_menu">
+			<%= link_to("全部","/titles/#{@title.id}/show") %>
+		</div>
+		<div class= "show_menu">
+			<%= link_to("1-100","/titles/#{@title.id}/show/1~100") %>
+		</div>
+		<div class= "show_menu">
+			<%= link_to("最新50","/titles/#{@title.id}/show/latest50") %>
+		</div>
+		<div class= "show_menu_back">
+			<%= link_to("■掲示板一覧に戻る■","/titles/index") %>
+		</div>
+	</div>
+
 
 	<% post_num = 1 %>
 	<% @posts.each do |post| %>
@@ -17,12 +35,34 @@
 		<% post_num = post_num + 1 %>
 	<% end %>
 
+	<div class= "show_menu_container">
+		<div class= "show_menu">
+			<%= link_to("全部読む","/titles/#{@title.id}/show") %>
+		</div>
+		<div class= "show_menu">
+			<%= link_to("前100","/titles/#{@title.id}/show/#{@start_num - 100}~#{@start_num}") %>
+		</div>
+		<div class= "show_menu">
+			<%= link_to("次100","/titles/#{@title.id}/show/#{@end_num}~#{@end_num + 100}") %>
+		</div>
+		<div class= "show_menu">
+			<%= link_to("最新50","/titles/#{@title.id}/show/latest50") %>
+		</div>
 
-	新規投稿
-	<%= form_tag("/posts/new/#{@title.id}") do %>
-		名前：<input type="text" name="name" />
-		内容：<textarea name="content"></textarea>
-		<input type="submit" value="投稿する" />
-	<% end %>
+		<div class="show_menu_back">
+			<%= link_to("掲示板一覧に戻る","/titles/index") %>
+		</div>
+	</div>
+
+	<div class="show_newpost">
+		<div class="show_newpost_title"><b>レスを投稿する</b></div>
+		<%= form_tag("/posts/new/#{@title.id}") do %>
+			<input type="text" name="name" size="77" placeholder="名前"/><br/>
+			<label for="content"></label><textarea id="content" name="content" rows="8" cols="80" placeholder="コメント内容"></textarea><br/>
+			<input type="submit" value="書き込む" />
+		<% end %>
+	</div>
+
+	
 
 </div>

@@ -1,11 +1,11 @@
 <div class="index">
   <div class="index_logo">
-    <img src="/5ch.png" width="500px"/>
+    <%= link_to(image_tag('/5ch.png',{:width=>"500px"}),"/") %>
   </div>
   <% @titles.each do |title| %>
       <div class="index_container">
         <div class="index_board_name">
-          <%= link_to(title.name,"/titles/#{title.id}/show") %>
+          <%= title.name %>
         </div>
 
         <% post_num = 1 %>
@@ -25,17 +25,33 @@
           <% end %>
 
         <% end %>
+
+        <div class="index_read">
+          <%= link_to("全部読む","/titles/#{title.id}/show") %>
+          <%= link_to("最新50","/titles/#{title.id}/show/latest50") %>
+          <%= link_to("1-100","/titles/#{title.id}/show/1~100") %>
+        </div>
+
+        <div class="index_newpost">
+          <div class="index_newpost_title"><b>書き込み欄</b></div>
+          <%= form_tag("/posts/new/#{title.id}") do %>
+            <input type="submit" value="書き込む" /><br/>
+            名前：<input type="text" name="name" size="40" /><br/>
+            <label for="content">内容：</label><textarea id="content" name="content" rows="8" cols="80"></textarea>
+          <% end %>
+        </div>
+
       </div>
 
   <% end %>
 
 
-
-  新規スレッド作成
-  スレッドタイトル：
-  <%= form_tag("/titles/new") do %>
-    <input type="text" name="name" />
-    <input type="submit" value="作成" />
-  <% end %>
+  <div class="index_newtitle">
+    <div class="index_newtitle_title"><b>新規スレッド作成</b></div>
+    <%= form_tag("/titles/new") do %>
+    <input type="submit" value="新規スレッド作成" /><br/>
+    スレッドタイトル：<input type="text" name="name" />  
+    <% end %>
+  </div>
 
 </div>
