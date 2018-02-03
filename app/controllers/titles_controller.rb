@@ -1,9 +1,8 @@
 class TitlesController < ApplicationController
+
   def index
     @titles = Title.all
   end
-
-
 
   def show
     @title = Title.find_by(id: params[:id])
@@ -33,8 +32,6 @@ class TitlesController < ApplicationController
 
     @posts = @posts[@start_num, @end_num]
   end
-
-
 
   def create
     @title = Title.new(name: params[:name])
