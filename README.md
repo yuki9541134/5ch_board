@@ -1,24 +1,6 @@
-# README
+# 5ch
+5ch風の掲示板
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Demo
+![5ch_board](https://user-images.githubusercontent.com/34640556/35768276-8da9f04e-093c-11e8-8a18-e0abac365ecb.PNG)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
