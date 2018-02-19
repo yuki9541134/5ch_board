@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<% post_num = 1 %>
+	<% post_num = @start_num + 1 %>
 	<% @posts.each do |post| %>
 		<br/>
 		<div class= "show_container">
@@ -42,7 +42,7 @@
 			<%= link_to("前100","/titles/#{@title.id}/show/#{@start_num - 100}~#{@start_num}") %>
 		</div>
 		<div class= "show_menu">
-			<%= link_to("次100","/titles/#{@title.id}/show/#{@end_num}~#{@end_num + 100}") %>
+			<%= link_to("次100","/titles/#{@title.id}/show/#{@end_num + 1}~#{@end_num + 101}") %>
 		</div>
 		<div class= "show_menu">
 			<%= link_to("最新50","/titles/#{@title.id}/show/latest50") %>

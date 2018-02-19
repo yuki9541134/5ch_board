@@ -15,7 +15,7 @@ class TitlesController < ApplicationController
         @start_num = @posts.length - 50
         @end_num = @posts.length
       else
-        @start_num = params[:range].split("~")[0].to_i
+        @start_num = params[:range].split("~")[0].to_i - 1
         @end_num = params[:range].split("~")[1].to_i
       end
     end
