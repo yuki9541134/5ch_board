@@ -1,0 +1,41 @@
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ff705b;
+}
+
+label {
+  vertical-align: top;
+}
+
+body {
+    background-color: white;
+}
+
+/* フラッシュ*/
+.flash {
+  text-align: center;
+  background-color:skyblue
+}
+
+.top_menu{
+    border-bottom-style: solid;
+    border-bottom-width: 0.1px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+}
+
+.top_image{
+    text-align: center;
+}
+
+.container {
+    display:inline-block;
+    background-color: #dcdcdc;
+    margin: 0px auto;
+    padding: 5px;
+}
+

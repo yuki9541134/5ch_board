@@ -1,10 +1,19 @@
-以下の内容を投稿します。<br/>
-名前：<%= @post.name%><br/>
-内容：<%= @post.content%>
+<% if flash[:notice] %>
+    <%= form_tag("/posts/new/#{@post.title_id}") do %>
+        <input type="submit" value="書き込む" /><br/>
+        <textarea style="display:none" name="id"><%= @post.title_id %></textarea><br/>
+        <textarea  name="name"><%= @post.name %></textarea><br/>
+        <textarea  name="content"><%= @post.content %></textarea>
+    <% end %>
+<% else %>
+    以下の内容を投稿します。<br/>
+    名前：<%= @post.name%><br/>
+    内容：<%= @post.content%>
 
-<%= form_tag("/posts/create") do %>
-    <input type="submit" value="確認" /><br/>
-    <textarea style="display:none" name="id"><%= @post.title_id %></textarea><br/>
-    <textarea style="display:none"  name="name"><%= @post.name %></textarea><br/>
-    <textarea style="display:none" name="content"><%= @post.content %></textarea>
+    <%= form_tag("/posts/create") do %>
+        <input type="submit" value="確認" /><br/>
+        <textarea style="display:none" name="id"><%= @post.title_id %></textarea><br/>
+        <textarea style="display:none"  name="name"><%= @post.name %></textarea><br/>
+        <textarea style="display:none" name="content"><%= @post.content %></textarea>
+    <% end %>
 <% end %>

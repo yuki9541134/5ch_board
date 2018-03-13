@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myboard</title>
+    <title>5ch</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+
+  <header>
+    <div class="top_menu">
+      <%= link_to(image_tag('/5ch_logo.png',{:width=>"150px"}),"/") %>
+      <% if @current_user %>
+        <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+        <%= link_to("掲示板一覧", "/titles/index") %>
+        <%= link_to("ログアウト", "/logout") %>
+      <% else %>
+        <%= link_to("新規登録", "/signup") %>
+        <%= link_to("ログイン", "/login") %>
+      <% end %>
+    </div>
+  </header>
+
+  <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+  <% end %>
+    
 
   <body>
     <%= yield %>

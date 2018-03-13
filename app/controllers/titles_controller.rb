@@ -1,5 +1,8 @@
 class TitlesController < ApplicationController
 
+  before_action :authenticate_user
+#  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+
   def index
     @titles = Title.all
   end
@@ -14,7 +17,7 @@ class TitlesController < ApplicationController
       if params[:range] == "latest50"
         @start_num = @posts.length - 50
         @end_num = @posts.length
-      else
+      else 
         @start_num = params[:range].split("~")[0].to_i - 1
         @end_num = params[:range].split("~")[1].to_i
       end
@@ -36,6 +39,7 @@ class TitlesController < ApplicationController
   def create
     @title = Title.new(name: params[:name])
     @title.save
+    flash[:notice] = "掲示板をを作成しました"
     redirect_to("/titles/index")
   end
 end
