@@ -1,5 +1,4 @@
 <div class="show">
-	
 
 	<div class = "show_title">
 		<%= @title.name %>
@@ -30,16 +29,12 @@
 			<div class="show_post_content">
 				<%= post.content %>
 			</div>
-
 			<% if post.user_id == @current_user.id %>
 				<div>
 					<%= link_to("編集","/posts/#{post.id}/edit") %>
 					<%= link_to("削除","/posts/#{post.id}/destroy", {method: "post"}) %>
 				</div>
 			<% end %>
-
-				
-
 		</div>
 		<% post_num = post_num + 1 %>
 	<% end %>
@@ -57,7 +52,6 @@
 		<div class= "show_menu">
 			<%= link_to("最新50","/titles/#{@title.id}/show/latest50") %>
 		</div>
-
 		<div class="show_menu_back">
 			<%= link_to("掲示板一覧に戻る","/titles/index") %>
 		</div>
